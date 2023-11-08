@@ -12,9 +12,11 @@ int main(void) {
       std::cout << "Число должно быть неотрицательным!\n";
     }
   }while(num<0);
-  int* arr = new int[num];
+  int* arr = new int[num+1]();
+  //std::cout<<"F(6): "<<arr[6]<<"\n";
   arr[0] = 0;
   arr[1] = 1;
+  //std::cout<<"F(6): "<<arr[6]<<"\n";
   std::cout<<"Число Фибоначчи номер "<<num<<" равно "<<fib_rec_memo(num,arr)<<"\n";
   delete [] arr;
   return 0;
@@ -27,6 +29,7 @@ long fib_rec_memo(int num, int* arr){
     if(!arr[num]){
       arr[num] = fib_rec_memo(num-1,arr) + fib_rec_memo(num-2,arr);
     }
+    //std::cout<<"Returning F("<<num<<"): "<<arr[num]<<"\n";
     return arr[num];
   }
 }
